@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       flash[:info] = "Created a trainee"
-      redirect_to root_url
+      redirect_to users_path
     else
       render 'new'
     end
@@ -23,12 +23,6 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find params[:id]
-  end
-
-  def show
-  end
-
-  def index
   end
 
   def destroy
