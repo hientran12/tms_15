@@ -1,12 +1,15 @@
 <div class="col-md-8">
-  <h1> 
+  <h3> 
     Add subjects to course <%= link_to @course.name, course_path(@course) %>
-  </h1>
+  </h3>
+  <ul class="list-group">
   <%= form_for :course, url: course_course_subject_relationships_path,
               method: :patch do |f| %>
+    <li class="list-group-item list-group-item-info">
     <%= collection_check_boxes(:course, :subject_ids, Subject.all, :id, :name) do |s|%>
-      <%= s.label(:"data-value" => s.value) { s.check_box + s.text } %> </br>
+      <%= s.label(:"data-value" => s.value) {s.check_box }%><b>   <%= s.text %></b></li>
     <% end %>
+  </ul>
     <div class="actions">
       <%= f.submit "Add", class: "btn btn-primary" %>
     </div>

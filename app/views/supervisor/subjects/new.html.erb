@@ -1,23 +1,28 @@
 <% provide(:title, "Create subject") %>
+<div class="col-md-8">
 <h1>New Subject</h1>
 <%= form_for [:supervisor, @subject] do |f| %>
-  <div class="col-md-4">
+
+    <div class="field">
     <p>
       <%= f.label :name, "Subject name" %>
       <%= f.text_field :name %>
     </p>
+    </div>
+    <div class="field">
     <p>
       <%= f.label :description %></br>
       <%= f.text_area :description, :rows => 10 %>
     </p>
-  </div>
+    </div>
 
   <div class="col-md-8">
     <%= f.fields_for :tasks do |builder| %>
       <%= render 'task_fields', :f => builder %>
     <% end %>
   </div>
+  <p><%= f.submit "Submit", class: "btn btn-primary" %></p>
+  <% end %>
 
-  <p><%= f.submit "Submit" %></p>
-<% end %>
-<%= link_to 'Back', supervisor_subjects_path %>
+<%= link_to 'Back', supervisor_subjects_path, class: "btn btn-primary"%>
+</div>

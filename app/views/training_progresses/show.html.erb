@@ -7,7 +7,7 @@
     <%= collection_check_boxes(:course, :user_ids, User.all, :id, :name) do |u| %>
       <ul class ="list-group">
         <li class="list-group-item list-group-item-info">
-          <%= u.label(:"data-value" => u.value) {u.check_box + u.text} %>
+          <%= u.label(:"data-value" => u.value) {u.check_box} %><b>   <%= u.text %></b>
         </li>
       </ul>
     <% end %>

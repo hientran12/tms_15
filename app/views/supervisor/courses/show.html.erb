@@ -14,40 +14,60 @@
         remote: true, class: "btn btn-primary" %>
     <% end %>
   <% else %>
-    <h1>This course has no trainee, add trainees to start course</h1>
+  <div class="col-md-12" style="background-color: yellow">
+    <h3>This course has no trainee, add trainees to start course</h3>
+  </div>
   <% end %>
-</div>
 
-<div class="col-md-6">
+<div class = "row">
+<div class="col-md-4">
   <div id="content">
-    <h1> <%= @course.name %> </h1>
+    <h3> <%= @course.name %> </h3>
+    <ul class="list-group">
+    <li class="list-group-item list-group-item-info">
     <p>
       <%= h @course.description %>
     </p>
-    <%= link_to 'Edit course', edit_supervisor_course_path(@course),
-      class: "btn btn-primary", remote: true %>
+    </li>
+    </ul>
   </div>
 </div>
 
 <div class="form-horizontal">
-  <div class="col-md-3">
-    <h1> List subjects </h1>
+  <div class="col-md-4">
+    <h3> List subjects </h3>
+    <ul class="list-group">
     <% @subjects.each do |subject| %>
+      <li class="list-group-item list-group-item-info">
       <p> <%= link_to subject.name, supervisor_course_subject_path(@course, subject) %> </p>
+      </li>
     <% end %>
-    <%= link_to 'Add subjects', course_course_subject_relationships_path(@course) %>
+  </ul>
   </div>
 </div>
 
 <div class="form-horizontal">
-  <div class="col-md-3">
-    <h1> List Users </h1>
-    <% @users.each do |user| %>
-      <p>
-        <%= link_to user.name, user_path(user) %>
-      </p>
+  <div class="col-md-4">
+    <h3> List Users </h3>
+    <ul class="list-group">
+      <% @users.each do |user| %>
+      <li class="list-group-item list-group-item-info">
+        <p>
+          <%= link_to user.name, user_path(user) %>
+       </p>
+     </li>
     <% end %>
-    <%= link_to 'Add trainees', course_training_progresses_path(@course),
-                 target: "_blank", class: "list-group-item list-group-item-info" %>
+    </ul>
   </div>
+</div>
+</div>
+<div class ="col-md-4">
+  <%= link_to 'Edit course', edit_supervisor_course_path(@course),class: "btn btn-primary", remote: true %>
+</div>
+<div class ="col-md-4">
+  <%= link_to 'Add subjects', course_course_subject_relationships_path(@course),class: "btn btn-primary" %>
+</div>
+<div class ="col-md-4">
+  <%= link_to 'Add trainees', course_training_progresses_path(@course),target: "_blank", class: "btn btn-primary" %>
+</div>
 </div>

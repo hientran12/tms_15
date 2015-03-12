@@ -1,7 +1,9 @@
-<h1>Subjects</h1>
-<div class="col-sm-3 col-md-12">
+<% provide(:title, "Subjects") %>
+<h1>List of Subjects</h1>
+<div class="col-md-12">
   <%= link_to "Add new Subject", new_supervisor_subject_path,
     class: "btn btn-lg btn-primary" %>
+  </br>
   <%= will_paginate %>
   <ul class="list-group">
     <% @subjects.each do |subject| %>

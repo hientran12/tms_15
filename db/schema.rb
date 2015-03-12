@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 20150311062400) do
   create_table "task_progresses", force: true do |t|
     t.integer  "subject_progress_id"
     t.integer  "task_id"
-    t.integer  "user_id"
     t.date     "date_of_start"
     t.boolean  "status"
     t.datetime "created_at"
